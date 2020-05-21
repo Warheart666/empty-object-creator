@@ -1,0 +1,30 @@
+{
+  "properties": [
+    {
+      "name": "ls.util.empty-object-controller.enable",
+      "type": "java.lang.Boolean",
+      "description": "Enable entry point to get empty object by rest api.",
+      "defaultValue": false
+    },
+    {
+      "name": "ls.util.empty-object-controller.domain-package",
+      "type": "java.lang.String",
+      "description": "Package for entities scan"
+    }
+  ],
+  "hints": [
+    {
+      "name": "ls.util.empty-object-controller.enable",
+      "values": [
+        {
+          "value": "true",
+          "description": "Enable entry point to get empty object by rest api."
+        },
+        {
+          "value": "false",
+          "description": "Disable entry point to get empty object by rest api."
+        }
+      ]
+    }
+  ]
+}
