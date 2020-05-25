@@ -12,7 +12,7 @@ creates entrypoint and shows new object by requesting param
   </dependency>
   and put jar to lib folder.
 
-2. add two props to project 
+2. add two props to project \n
 ls.util.empty-object-controller.enable=true
 ls.util.empty-object-controller.domain-package=ur.pack.with.classes 
 
