@@ -13,9 +13,7 @@ creates entrypoint and shows new object by requesting param
   and put jar to lib folder.
 
 2. add two props to project 
-ls:
-  util:
-    empty-object-controller:
-      enable: true
-      domain-package: ur.pack.with.classes 
+ls.util.empty-object-controller.enable=true
+ls.util.empty-object-controller.domain-package=ur.pack.with.classes 
+
 3. start project and go to GET entry point  http://yourservcontext/getNewInstance?className=requestedclassname
