@@ -54,7 +54,7 @@ public class EmptyObjectCreatorAutoConfiguration {
         @GetMapping
         public Object getNewInstance(@RequestParam(value = "className") String s) throws Exception {
 
-            if (EmptyObjectCreatorService.emptyObjects.containsKey(s.toUpperCase())) {
+            if (EmptyObjectCreatorService.emptyObjects.containsKey(s.toLowerCase())) {
                 return EmptyObjectCreatorService.emptyObjects.get(s);
             }
 
