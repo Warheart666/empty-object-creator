@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 /**
  * Класс создает Rest Controller для получаения пустых объектов по типу объекта.
- * Автокогнфиг срабатывает только если отрабатывает кондишн( существует пакет указанный в пропертях и мы включили проперти  ls.util.empty-object-controller.enable
+ * Автоконфиг срабатывает только если отрабатывает кондишн( существует пакет указанный в пропертях и мы включили проперти  ls.util.empty-object-controller.enable
  */
 @Configuration
 @ConditionalOnExpression("${ls.util.empty-object-controller.enable:true} &&  T(ru.ls.utils.emptyobjectcreator.EmptyObjectCreatorAutoConfiguration).isPackageExists('${ls.util.empty-object-controller.domain-package:}') ")
@@ -62,7 +62,7 @@ public class EmptyObjectCreatorAutoConfiguration {
             ApplicationHome home = new ApplicationHome();
             String path;
             if (home.getSource() == null) {  // if run local
-                Class mainClass = findBootClass();
+                Class<?> mainClass = findBootClass();
 
                 if (mainClass == null) {
                     log.error("Main class not found! EmptyObjectCreatorController will not work.");
@@ -83,10 +83,10 @@ public class EmptyObjectCreatorAutoConfiguration {
 
             EmptyObjectCreatorService.run(path, packageName);
 
-            return EmptyObjectCreatorService.emptyObjects.getOrDefault(s.toLowerCase(), "Объект не найден");
+            return EmptyObjectCreatorService.emptyObjects.getOrDefault(s.toLowerCase(), "Required class not found!");
         }
 
-        private Class findBootClass() {
+        private Class<?> findBootClass() {
             Map<String, Object> annotatedBeans = context.getBeansWithAnnotation(SpringBootApplication.class);
             return annotatedBeans.isEmpty() ? null : annotatedBeans.values().toArray()[0].getClass();
         }
